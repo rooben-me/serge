@@ -119,6 +119,6 @@
   </div>
 </aside>
 
-<div class="p-4 sm:ml-80 bg-slate-900 h-full relative">
+<div class="p-4 sm:ml-80 bg-slate-900 min-h-screen relative">
   <slot />
 </div>
