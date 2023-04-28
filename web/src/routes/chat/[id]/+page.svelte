@@ -2,6 +2,7 @@
   import type { PageData } from "./$types";
   import { invalidate, goto } from "$app/navigation";
   import { page } from "$app/stores";
+  import { onMount, afterUpdate } from "svelte";
 
   export let data: PageData;
 
@@ -90,9 +91,9 @@
   class="max-w-4xl mx-auto h-full max-h-screen relative"
   on:keydown={handleKeyDown}
 >
-  <div class="flex items-center">
-    <h1 class="text-4xl font-bold inline-block mr-2">
-      Chat with {data.chat.params.model_path}
+  <div class="flex justify-between items-center">
+    <h1 class="text-4xl font-semibold text-white inline-block mr-2">
+      Model : {data.chat.params.model_path}
     </h1>
     <div
       class="tooltip tooltip-bottom"
@@ -101,7 +102,7 @@
       <button
         type="button"
         disabled={isLoading}
-        class="btn btn-sm mr-2 mt-5 mb-5 inline-block"
+        class="p-2 px-4 bg-slate-800 hover:bg-slate-700 focus:ring-2 focus:ring-slate-700 focus:ring-offset-2 font-medium rounded-lg mr-2 mt-5 mb-5 inline-block"
         class:loading={isLoading}
         on:click|preventDefault={() => createSameSession()}
       >
@@ -109,24 +110,24 @@
       </button>
     </div>
   </div>
-  <h4 class="text-xl font-semibold mb-5">
+  <h4 class="text-lg font-medium mb-5">
     Started on {startDate.toLocaleString("en-US")}
   </h4>
-  <div class="overflow-y-auto h-[calc(97vh-12rem)] px-10 mb-11">
-    <div class="h-max pb-32">
+  <div class="overflow-y-auto rounded-xl border border-slate-700 p-4 h-[calc(97vh-14rem)] mb-8">
+    <div class="h-max">
       {#each history as question}
         {#if question.type === "human"}
-          <div class="chat chat-end my-2">
+          <div class="chat chat-end my-4">
             <div
-              class="chat-bubble chat-bubble-secondary whitespace-pre-line text-lg"
+              class="bg-gradient-to-t from-slate-800 to-slate-700 text-white p-2 px-4 rounded-xl whitespace-pre-line text-lg"
             >
               {question.data.content}
             </div>
           </div>
         {:else if question.type === "ai"}
-          <div class="chat chat-start my-2">
+          <div class="chat chat-start mt-4 mb-12">
             <div
-              class="chat-bubble chat-bubble-primary whitespace-pre-line text-lg"
+              class="bg-gradient-to-t from-indigo-700 to-indigo-500 shadow-lg shadow-indigo-600/30 text-white p-2 px-4 rounded-xl whitespace-pre-line text-lg"
             >
               {#if question.data.content === ""}
                 <div
@@ -139,7 +140,7 @@
           </div>
         {:else if question.type === "system"}
           <div
-            class="w-full text-center font-light text-md text-gray-500 pb-10"
+            class="inline-flex mx-auto text-center font-light text-md text-gray-300 my-4 p-2 px-4"
           >
             {question.data.content}
           </div>
@@ -147,13 +148,14 @@
       {/each}
     </div>
   </div>
-  <div
-    class="items-center w-full px-0 h-0 flex flex-row bg-base-100 justify-center"
+  <form
+    on:submit|preventDefault={askQuestion}
+    class="items-center w-full flex justify-center gap-4"
   >
-    <textarea
+    <input
       autofocus
       name="question"
-      class="textarea textarea-bordered h-10 w-full max-w-xl mb-5 text-lg"
+      class="w-full px-4 p-2.5 rounded-xl text-lg bg-slate-800 focus-visible:ring-0"
       disabled={isLoading}
       placeholder="Ask a question..."
       bind:value={prompt}
@@ -161,11 +163,11 @@
     <button
       type="submit"
       disabled={isLoading}
-      class="btn btn-primary h-10 w-24 text-lg ml-2 mb-5"
+      class="p-2.5 px-4 text-slate-200 bg-slate-800 rounded-xl text-lg focus:ring-2 focus:ring-slate-700 focus:ring-offset-2"
       class:loading={isLoading}
-      on:click|preventDefault={askQuestion}
+      
     >
       Send
     </button>
-  </div>
+  </form>
 </div>

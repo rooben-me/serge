@@ -57,10 +57,10 @@
 
 <aside
   id="default-sidebar"
-  class="fixed top-0 left-0 z-40 w-80 h-screen transition-transform -translate-x-full sm:translate-x-0"
+  class="fixed top-0 left-0 z-40 w-80 h-screen transition-transform bg-slate-950 -translate-x-full sm:translate-x-0"
   aria-label="Sidebar"
 >
-  <div class="h-full px-3 py-4 overflow-y-auto bg-base-300">
+  <div class="h-full px-3 py-4 overflow-y-auto">
     <ul class="space-y-2">
       <li class="pt-4">
         <a href="/" class="btn btn-outline h-6 w-full font-semibold"> Home </a>
@@ -111,6 +111,6 @@
   </div>
 </aside>
 
-<div class="p-4 sm:ml-80 h-full">
+<div class="p-4 sm:ml-80 h-full bg-slate-900 relative">
   <slot />
 </div>
