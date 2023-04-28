@@ -91,8 +91,8 @@
   class="max-w-4xl mx-auto h-full max-h-screen relative"
   on:keydown={handleKeyDown}
 >
-  <div class="flex justify-between items-center">
-    <h1 class="text-4xl font-semibold text-white inline-block mr-2">
+  <div class="flex justify-between items-center mb-2 mt-4">
+    <h1 class="text-4xl font-medium text-white inline-block mr-2">
       Model : {data.chat.params.model_path}
     </h1>
     <div
@@ -102,18 +102,18 @@
       <button
         type="button"
         disabled={isLoading}
-        class="p-2 px-4 bg-slate-800 hover:bg-slate-700 focus:ring-2 focus:ring-slate-700 focus:ring-offset-2 font-medium rounded-lg mr-2 mt-5 mb-5 inline-block"
+        class="p-2 px-4 bg-slate-800 border inline-flex items-center gap-3 border-slate-700/70 hover:bg-slate-700 focus:ring-2 focus:ring-slate-700 focus:ring-offset-2 font-medium rounded-lg mr-2"
         class:loading={isLoading}
         on:click|preventDefault={() => createSameSession()}
       >
-        New
+        New Chat
       </button>
     </div>
   </div>
-  <h4 class="text-lg font-medium mb-5">
+  <h4 class="text-lg font-regular mb-6">
     Started on {startDate.toLocaleString("en-US")}
   </h4>
-  <div class="overflow-y-auto rounded-xl border border-slate-700 p-4 h-[calc(97vh-14rem)] mb-8">
+  <div class="overflow-y-auto rounded-xl border border-slate-700/70 p-4 h-[calc(97vh-14rem)] mb-8">
     <div class="h-max">
       {#each history as question}
         {#if question.type === "human"}
@@ -150,12 +150,12 @@
   </div>
   <form
     on:submit|preventDefault={askQuestion}
-    class="items-center w-full flex justify-center gap-4"
+    class="items-center w-full flex justify-center gap-3"
   >
     <input
       autofocus
       name="question"
-      class="w-full px-4 p-2.5 rounded-xl text-lg bg-slate-800 focus-visible:ring-0"
+      class="w-full px-4 p-2.5 rounded-lg border border-slate-700/70 text-lg bg-slate-800 focus-visible:ring-0"
       disabled={isLoading}
       placeholder="Ask a question..."
       bind:value={prompt}
@@ -163,7 +163,7 @@
     <button
       type="submit"
       disabled={isLoading}
-      class="p-2.5 px-4 text-slate-200 bg-slate-800 rounded-xl text-lg focus:ring-2 focus:ring-slate-700 focus:ring-offset-2"
+      class="p-2.5 px-4 text-slate-200 border border-slate-700/70 bg-slate-800 rounded-lg text-lg focus:ring-2 focus:ring-slate-700 focus:ring-offset-2"
       class:loading={isLoading}
       
     >
