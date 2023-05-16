@@ -1,4 +1,10 @@
-# Serge - LLaMA made easy 🦙
+# Fork of Serge - LLaMA made easy 🦙
+
+### ROOBEN's UI
+
+![Screenshot from 2023-05-16 19-40-32](https://github.com/rooben-me/serge/assets/51721541/64a7fa01-a1f5-408f-9132-9bbe9e082939)
+
+---
 
 ![License](https://img.shields.io/github/license/nsarrazin/serge)
 [![Discord](https://img.shields.io/discord/1088427963801948201?label=Discord)](https://discord.gg/62Hc6FEYQH)
