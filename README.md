@@ -5,6 +5,11 @@
 ![Screenshot from 2023-05-16 19-40-32](https://github.com/rooben-me/serge/assets/51721541/64a7fa01-a1f5-408f-9132-9bbe9e082939)
 
 ---
+### Original UI
+[demo.webm](https://user-images.githubusercontent.com/25119303/226897188-914a6662-8c26-472c-96bd-f51fc020abf6.webm)
+
+---
+
 
 ![License](https://img.shields.io/github/license/nsarrazin/serge)
 [![Discord](https://img.shields.io/discord/1088427963801948201?label=Discord)](https://discord.gg/62Hc6FEYQH)
@@ -14,8 +19,6 @@ A chat interface based on [llama.cpp](https://github.com/ggerganov/llama.cpp) fo
 - **SvelteKit** frontend
 - **Redis** for storing chat history & parameters
 - **FastAPI + langchain** for the API, wrapping calls to [llama.cpp](https://github.com/ggerganov/llama.cpp) using the [python bindings](https://github.com/abetlen/llama-cpp-python)
-
-[demo.webm](https://user-images.githubusercontent.com/25119303/226897188-914a6662-8c26-472c-96bd-f51fc020abf6.webm)
 
 ## Getting started
 
